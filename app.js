@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 
 var api = require('./routes/api');
+var job = require('./jobs/');
 
 var app = express();
 
@@ -23,11 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
 
 app.get('/', function(req, res) {
-  res.send({
-    "app": "crypto-api",
-    "author": "Javier López",
-    "repository": "https://github.com/javierlopeza/crypto-api"
-  });
+  res.send({"app": "crypto-api"});
 });
 
 app.use('/api', api);
